@@ -8,6 +8,11 @@ import subprocess
 import sys
 import json
 from pathlib import Path
+import io
+
+# Configurar stdout para UTF-8 en Windows
+if sys.platform == "win32":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 def run_command(cmd, description=""):
     """Ejecuta un comando y retorna el resultado"""

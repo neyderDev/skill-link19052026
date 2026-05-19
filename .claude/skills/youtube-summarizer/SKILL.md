@@ -14,18 +14,27 @@ Obtén el `video_id` del link. Los formatos comunes son:
 ## Paso 2: Obtener la transcripción
 Intenta estos métodos en orden:
 
-1. **Opción A - Python con youtube-transcript-api:**
+1. **Opción A - Python con youtube-transcript-api (AUTOMÁTICO):**
+   - Primero, instala automáticamente si no está disponible:
    ```bash
-   pip install youtube-transcript-api 2>/dev/null
+   python -m pip install youtube-transcript-api --quiet
+   ```
+   - Luego ejecuta:
+   ```bash
    python .claude/skills/youtube-summarizer/get_transcript.py VIDEO_ID
+   ```
+   - Si falla por dependencia faltante, instala desde requirements.txt:
+   ```bash
+   python -m pip install -r requirements.txt --quiet
    ```
 
 2. **Opción B - Fallback con yt-dlp (si Python falla):**
    ```bash
+   pip install yt-dlp --quiet
    yt-dlp --write-auto-sub --sub-lang en,es,fr,de,pt,ja,zh --skip-download "https://www.youtube.com/watch?v=VIDEO_ID"
    ```
 
-3. **Opción C - Manual:**
+3. **Opción C - Manual (último recurso):**
    Si ambas opciones fallan, pide al usuario que:
    - Abra el video en YouTube
    - Active los subtítulos (CC)
