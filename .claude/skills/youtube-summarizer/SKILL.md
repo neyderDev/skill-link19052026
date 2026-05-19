@@ -3,6 +3,8 @@ name: youtube-summarizer
 description: Resume, explica y genera preguntas sobre un video de YouTube. Úsalo cuando el usuario pase un link de YouTube y quiera entender, aprender o ser evaluado sobre su contenido. Soporta videos en cualquier idioma.
 ---
 
+⚠️ **REQUISITO PRINCIPAL**: Todo el resumen, explicaciones y preguntas deben estar SIEMPRE en español, sin excepciones. Aunque el video esté en inglés, francés u otro idioma, la salida debe ser 100% en español.
+
 Cuando el usuario proporciona un link de YouTube, sigue estos pasos:
 
 ## Paso 1: Extraer el ID del video
@@ -41,12 +43,16 @@ Intenta estos métodos en orden:
    - Use las herramientas del navegador para copiar la transcripción
    - La pegue en el chat
 
-## Paso 3: Detectar idioma y traducir
+## Paso 3: Detectar idioma y traducir a español
 - Analiza el idioma de la transcripción obtenida
-- Si el contenido NO está en español o inglés, tradúcelo automáticamente antes de continuar
-- Menciona el idioma original en tu respuesta
+- **IMPORTANTE**: Siempre traduce la transcripción completamente al español antes de generar el resumen
+- Si ya está en español, continúa normalmente
+- Si está en otro idioma (inglés, francés, etc.), tradúcela completamente al español
+- Menciona el idioma original en tu respuesta (ej: "🌍 Idioma original: English")
 
-## Paso 4: Generar el resumen estructurado
+## Paso 4: Generar el resumen estructurado EN ESPAÑOL
+**IMPORTANTE**: Todo el resumen, explicaciones y preguntas deben estar en español.
+
 Produce una respuesta con esta estructura:
 
 ```

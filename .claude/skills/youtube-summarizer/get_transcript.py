@@ -27,8 +27,8 @@ def get_video_transcript(video_id):
     try:
         api = YouTubeTranscriptApi()
 
-        # Preferencia de idiomas: español > inglés > primer disponible
-        preferred_langs = ['es', 'en', 'fr', 'de', 'pt', 'ja', 'zh', 'it']
+        # Preferencia de idiomas: SIEMPRE ESPAÑOL primero
+        preferred_langs = ['es', 'es-ES', 'es-MX', 'en', 'en-US', 'en-GB', 'fr', 'de', 'pt', 'ja', 'zh', 'it']
 
         transcript_data = None
         lang_code = None
